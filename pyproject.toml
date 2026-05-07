@@ -1,0 +1,68 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ardi-orbit"
+version = "0.1.0"
+description = "LLM-driven autonomous mining agent for Ardi WorkNet — solves multilingual riddles, commits/reveals, mints Ardinal NFTs on Base via ardi-skill."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "ardi-orbit contributors" }]
+keywords = ["agent", "llm", "ardi", "ardinal", "base", "nft", "mimo", "multi-agent"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "litellm>=1.50,<2",
+    "pydantic>=2.7,<3",
+    "pydantic-settings>=2.3,<3",
+    "rich>=13.7,<14",
+    "typer>=0.12,<1",
+    "tenacity>=9.0,<10",
+    "python-dotenv>=1.0,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2,<9",
+    "pytest-asyncio>=0.23,<1",
+    "pytest-mock>=3.14,<4",
+    "ruff>=0.6,<1",
+    "mypy>=1.10,<2",
+]
+
+[project.scripts]
+ardi-orbit = "ardi_orbit.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/awp-worknet/ardi-skill"
+Issues = "https://github.com/awp-worknet/ardi-skill/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ardi_orbit"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-ra --strict-markers"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
