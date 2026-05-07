@@ -16,6 +16,23 @@ mainnet to mint Ardinal NFTs (1 of 21,000).
 
 ---
 
+## Demo
+
+![ardi-orbit demo](demo/ardi-orbit-demo.gif)
+
+Generate the demo yourself (no API keys, no `ardi-agent` binary required):
+
+```bash
+./demo/install_recorder.sh    # one-time: installs asciinema + static agg
+./demo/record.sh              # produces demo/ardi-orbit-demo.{cast,gif}
+```
+
+Expected: a ~30s recording of epoch 142 — 15 riddles solved in 12 languages,
+5 commits, 2 VRF wins, 2 Ardinals minted (`#3358`, `#3494`). See
+[`demo/README.md`](demo/README.md) for details.
+
+---
+
 ## Highlights
 
 - **Multi-agent architecture** — Solver, Strategy, Executor, Monitor.

@@ -46,7 +46,17 @@ htmlcov/
 *.log
 logs/
 .ardi-orbit/
+.demo-state/
 state/
+
+# Demo artifacts (binaries + generated recordings)
+demo/bin/
+demo/*.cast
+demo/*.gif
+demo/*.mp4
+
+# ...but keep the canonical demo GIF shipped with the repo so the README renders
+!demo/ardi-orbit-demo.gif
 
 # OS
 .DS_Store
